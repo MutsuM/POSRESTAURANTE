@@ -1,0 +1,220 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-8">
+                            <h4 class="card-title">Nuevo Cliente</h4>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a  [routerLink]="['/' + Prefix + '/clients']" class="btn btn-primary text-center">
+                                <i class="fa fa-arrow-left"></i>
+                                Volver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form form-horizontal">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="first-name">Nombre</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" [(ngModel)]="client.names" name="names" />
+                                        <span class="color-danger"><small>{{getMessageValidate('names')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="email-id">Apellido Paterno</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" [(ngModel)]="client.lastNameFat" name="lastNameFat" />
+                                        <span class="color-danger"><small>{{getMessageValidate('lastNameFat')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="email-id">Apellido Materno</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" [(ngModel)]="client.lastNameMot" name="lastNameMot" />
+                                        <span class="color-danger"><small>{{getMessageValidate('lastNameMot')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="email-id">Género</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" [(ngModel)]="client.gender"  (change)="selectedGender()" >
+                                            <option value="M">Masculino</option>
+                                            <option value="F">Femenino</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="contact-info">Correo</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" [(ngModel)]="client.email" name="email" />
+                                        <span class="color-danger"><small>{{getMessageValidate('email')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="contact-info">Teléfono</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" [(ngModel)]="client.telephone" name="telephone" />
+                                        <span class="color-danger"><small>{{getMessageValidate('telephone')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="contact-info">Dirección</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" [(ngModel)]="client.direction" name="direction" />
+                                        <span class="color-danger"><small>{{getMessageValidate('direction')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="contact-info">Fecha Nacimiento</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="date" class="form-control" [(ngModel)]="client.dateBirth" name="dateBirth"  />
+                                        <span class="color-danger"><small>{{getMessageValidate('dateBirth')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="col-12">
+                                <hr>
+                            </div>
+            
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="first-name">Provincia</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" [(ngModel)]="client.province" name="province" />
+                                        <span class="color-danger"><small>{{getMessageValidate('province')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="first-name">Ciudad</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" [(ngModel)]="client.city" name="city" />
+                                        <span class="color-danger"><small>{{getMessageValidate('city')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="first-name">Información clínica</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" [(ngModel)]="client.infoClinical" name="infoClinical" />
+                                        <span class="color-danger"><small>{{getMessageValidate('infoClinical')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="first-name">Notas</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" [(ngModel)]="client.notes" name="notes" />
+                                        <span class="color-danger"><small>{{getMessageValidate('notes')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="first-name">Activo</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="custom-control custom-control-primary custom-switch">
+                                            <input type="checkbox" [checked]="client.active" class="custom-control-input"
+                                                id="active" (change)="client.active = !client.active"/>
+                                            <label class="custom-control-label" for="active"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="first-name">Envio Correo</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="custom-control custom-control-primary custom-switch">
+                                            <input type="checkbox" [checked]="client.sendEmail" class="custom-control-input"
+                                                id="envioCorreo" (change)="client.sendEmail=!client.sendEmail"/>
+                                            <label class="custom-control-label" for="envioCorreo"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="first-name">Envio SMS</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <div class="custom-control custom-control-primary custom-switch">
+                                            <input type="checkbox" [checked]="client.sendSms" class="custom-control-input" id="enviosSms" (change)="client.sendSms = !client.sendSms"/>
+                                            <label class="custom-control-label" for="enviosSms"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-10 offset-sm-2">
+                                <button type="button" class="btn btn-primary mr-1" (click)="saveClient()">
+                                    Guardar
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary mr-1" (click)="cleanForm()">
+                                    Limpiar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

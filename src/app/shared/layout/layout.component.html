@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+<app-sidebar></app-sidebar>
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper p-0">
+        <div class="content-header row">
+            <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="col-12">
+                        <h2 class="content-header-title float-left mb-0">Basic Card</h2>
+                        <div class="breadcrumb-wrapper">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="#">Card</a>
+                                </li>
+                                <li class="breadcrumb-item active">Basic Card
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+<div class="sidenav-overlay"></div>
+<div class="drag-target"></div>
+
+
+<footer class="footer footer-static footer-light">
+    <p class="clearfix mb-0">
+        <span class="float-md-left d-block d-md-inline-block mt-25">
+            COPYRIGHT &copy; 2022
+            <a class="ml-25" href="https://sigties.com/wp/" target="_blank">
+                SIGTI
+            </a>
+            <span class="d-none d-sm-inline-block">, All rights Reserved</span>
+        </span>
+    </p>
+</footer>
+<button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>

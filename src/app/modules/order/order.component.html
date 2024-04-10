@@ -1,0 +1,134 @@
+
+<div>
+    <div class="row">
+        <div class="col-md-7 row" >
+            <div class="col-lg-2" >
+                <div class="boton-categoria">
+                    todos
+                </div>
+                <div class="boton-categoria">
+                    argentina
+                </div>
+                <div class="boton-categoria">
+                    japon
+                </div>
+                <div class="boton-categoria">
+                    vegeteriano
+                </div>
+                <div class="boton-categoria">
+                    italiano
+                </div>
+                <div class="boton-categoria">
+                    coreano
+                </div>
+                <div class="boton-categoria">
+                    chino
+                </div>
+            </div>
+            <div class="col-lg-10 row"> 
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj4SzSuStwvHlqvO4WEIA4Ct5eciwKSVFFkmj5QkUHZg&s" class="card-img-top" alt="...">
+                    <div class="card-body" style="text-align: center;">
+                      <p class="card-text">tallarin saltado</p>
+                    </div>
+                </div> 
+                <div class="card" >
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj4SzSuStwvHlqvO4WEIA4Ct5eciwKSVFFkmj5QkUHZg&s" class="card-img-top" alt="...">
+                    <div class="card-body" style="text-align: center;">
+                      <p class="card-text">tallarin saltado</p>
+                    </div>
+                  </div> 
+                  <div class="card" >
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj4SzSuStwvHlqvO4WEIA4Ct5eciwKSVFFkmj5QkUHZg&s" class="card-img-top" alt="...">
+                    <div class="card-body" style="text-align: center;">
+                      <p class="card-text">tallarin saltado</p>
+                    </div>
+                  </div> 
+                  <div class="card" >
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj4SzSuStwvHlqvO4WEIA4Ct5eciwKSVFFkmj5QkUHZg&s" class="card-img-top" alt="...">
+                    <div class="card-body" style="text-align: center;">
+                      <p class="card-text">tallarin saltado</p>
+                    </div>
+                  </div> 
+                  <div class="card" >
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj4SzSuStwvHlqvO4WEIA4Ct5eciwKSVFFkmj5QkUHZg&s" class="card-img-top" alt="...">
+                    <div class="card-body" style="text-align: center;">
+                      <p class="card-text">tallarin saltado</p>
+                    </div>
+                  </div> 
+                  <div class="card" >
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj4SzSuStwvHlqvO4WEIA4Ct5eciwKSVFFkmj5QkUHZg&s" class="card-img-top" alt="...">
+                    <div class="card-body" style="text-align: center;">
+                      <p class="card-text">tallarin saltado</p>
+                    </div>
+                  </div> 
+            
+        </div>
+    </div>
+        <div class="col-md-5" >
+            <form class="row">
+                <div class="col-5">
+                    <label for="exampleInputPassword1" class="form-label">cliente</label>
+                    <select class="form-control">
+                        <option value="0">Seleccionar cliente</option>
+                    </select>
+                  </div>
+                  <div class="col-3">
+                    <label for="exampleInputPassword1" class="form-label">Tipo</label>
+                    <select class="form-control">
+                        <option value="0">Delivery</option>
+                    </select>
+                  </div>
+                  <div class="col-4">
+                    <label for="exampleInputPassword1" class="form-label">Servicio</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1">
+                  </div>
+                <div class="col-12">
+                    <label for="exampleInputPassword1" class="form-label">Nota</label>
+                    <textarea type="text" class="form-control" 
+                                placeholder="Ingrese Nota"></textarea>
+                  </div>
+                  <div class="col-4">
+                    <label for="exampleInputPassword1" class="form-label">Precio</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" disabled>
+                  </div>
+                 
+                  <div class="col-4">
+                    <label for="exampleInputPassword1" class="form-label">IGV</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" disabled>
+                  </div>
+                  <div class="col-4">
+                    <label for="exampleInputPassword1" class="form-label">Total</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" disabled>
+                  </div>
+                    <div class="col-6">
+                        <div class="col-form-label">
+                            <button [disabled]="this.activeButon" class="btn btn-success" (click)="save(1)"><i class="fa-solid fa-dollar-sign"></i> Efectivo</button>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col-form-label">
+                            <button [disabled]="this.activeButon" class="btn btn-danger" (click)="save(2)"><i class="fa-regular fa-credit-card"></i> Tarjeta</button>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col-form-label">
+                            <button [disabled]="this.activeButon" class="btn btn-dark" (click)="save(3)"><i class="fas fa-exchange"></i> Transferencia</button>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col-form-label">
+                            <button [disabled]="this.activeButon" class="btn btn-primary" (click)="save(4)"><i class="far fa-sim-card"></i> Gift Card</button>
+                        </div>
+                    </div>
+               
+
+                
+              </form>
+        </div>
+      
+    
+    </div>
+    
+</div>
++

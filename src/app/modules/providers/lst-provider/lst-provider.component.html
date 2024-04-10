@@ -1,0 +1,28 @@
+<div class="card-header">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-6">
+                <h4 class="card-title">Lista de Proveedores</h4>
+            </div>
+            <div class="col-4">
+                <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Ingrese el texto" aria-label="" aria-describedby="basic-addon1">
+            </div>
+            <div class="col-2 text-right">
+                <a  [routerLink]="['new']" class="btn btn-primary text-center">
+                    <i class="fa fa-plus"></i>
+                    Nuevo
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-table-pagination
+    [headers]="headers"
+    [itemsPerPage]="5"
+    [currentPage]="1"
+    [search]="searchText"
+    (edit)="redirectUpdate($event)"
+    (delete)="deleteProvider($event)"
+    
+></app-table-pagination>

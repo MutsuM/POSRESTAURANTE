@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-8">
+                            <h4 class="card-title">Actualizar Proveedor</h4>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a  [routerLink]="['/' + Prefix + '/providers']" class="btn btn-primary text-center">
+                                <i class="fa fa-arrow-left"></i>
+                                Volver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form form-horizontal">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="email-id">Nombre</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" [(ngModel)]="providers.name" name="name" />
+                                        <span class="color-danger"><small>{{getMessageValidate('name')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="first-name">Teléfono</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" [(ngModel)]="providers.telephone" name="telephone" />
+                                        <span class="color-danger"><small>{{getMessageValidate('telephone')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="first-name">Email</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" [(ngModel)]="providers.email" name="email" />
+                                        <span class="color-danger"><small>{{getMessageValidate('email')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="first-name">Contacto</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" [(ngModel)]="providers.contactPerson" name="contactPerson" />
+                                        <span class="color-danger"><small>{{getMessageValidate('contactPerson')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="first-name">Notas</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" [(ngModel)]="providers.notes" name="notes" />
+                                        <span class="color-danger"><small>{{getMessageValidate('notes')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="contact-info">Forma de Pago</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" [(ngModel)]="paymentId" (change)="selectedFormaPago()">
+                                            <option value="0">Seleccionar Pago</option>
+                                            <option *ngFor="let p of payments" [value]="p.paymentId">{{p.type}}</option>
+                                        </select>
+                                        <span class="color-danger"><small>{{msgPayment}}</small></span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <hr>
+                            </div>
+                            
+                            <div class="col-sm-10 offset-sm-2">
+                                <button type="button" class="btn btn-primary mr-1" (click)="saveProvider()">
+                                    <i class="fa fa-save"></i> Actualizar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-new-category></app-new-category>

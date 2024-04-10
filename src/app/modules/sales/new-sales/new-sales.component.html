@@ -1,0 +1,252 @@
+<div class="col-12">
+    <div class="row">
+        <div class="col-5">
+            <div *ngFor="let d of detailSale  ; let i = index ">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{d.reference}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Ver detalle
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="contact-info">Empleado</label>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <select class="form-control" aria-label="Default select example"
+                                            (change)="selectedEmployeeDetail(i,$event)">
+                                            <option value="0">Seleccionar Empleado</option>
+                                            <option *ngFor="let e of employee" value={{e.employeeId}}>{{e.names}}
+                                                {{e.lastName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="col-form-label">
+                                        <label for="first-name">Unidades</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" name="notes"
+                                                placeholder="cantidad" value={{d.amount}}
+                                                (keyup)="changeAmount($event,i)" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="col-form-label">
+                                        <label for="first-name">Precio</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <input type="number" class="form-control" name="price" placeholder="precio"
+                                                value={{d.price}} (keyup)="changePrice($event,i)" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+
+                                    <div class="col-form-label">
+                                        <label for="first-name">Descuento.%</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <input type="number" class="form-control" name="notes"
+                                                placeholder="Descuento" value={{d.discount}}
+                                                (keyup)="changeDiscount($event,i)" />
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="col-3">
+                                <div class="col-form-label">
+                                    <label for="first-name">Subtotal</label>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <input type="number" class="form-control" name="notes" placeholder="cantidad"
+                                            disabled="true" value={{d.subtotal}} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="col-sm-2 col-form-label">
+                                    <label for="first-name">Total</label>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <input type="number" class="form-control" name="notes" placeholder="total"
+                                            disabled="true" value={{d.total}} [(ngModel)]="d.total" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="float-right">
+                <button class="btn btn-danger" (click)="deleteDetail(i)">Eliminar</button>
+            </div>
+            </mat-expansion-panel>
+
+        </div>
+        <div class="col-12">
+            <div class="col-sm-2 col-form-label">
+                <label for="contact-info">Cliente</label>
+            </div>
+            <div class="col-sm-12">
+                <select class="form-control" aria-label="Default select example" [(ngModel)]="clientId"
+                    (change)="selectedClient()">
+                    <option value="0">Seleccionar Cliente</option>
+                    <option *ngFor="let c of clients" value={{c.clientId}}>{{c.names}}
+                        {{c.lastNameFat}}</option>
+                </select>
+                <span class="color-danger"><small>{{msgClient}}</small></span>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="col-sm-2 col-form-label">
+                <label for="contact-info">Empleado</label>
+            </div>
+            <div class="col-sm-12">
+                <select class="form-control" aria-label="Default select example" [(ngModel)]="employeeId"
+                    (change)="selectedEmployee()">
+                    <option value="0">Seleccionar Empleado</option>
+                    <option *ngFor="let e of employee" value={{e.employeeId}}>{{e.names}}
+                        {{e.lastName}}</option>
+                </select>
+                <span class="color-danger"><small>{{msgEmployee}}</small></span>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6">
+                    <div class="col-sm-2 col-form-label">
+                        <label for="first-name">Descuento</label>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" name="notes" placeholder="cantidad"
+                                value={{sales.discountSale}} disabled="true" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="col-sm-2 col-form-label">
+                        <label for="first-name">IGV</label>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" name="notes" placeholder="IGV"
+                                value={{this.sales.tax}} disabled="true" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="col-sm-2 col-form-label">
+                        <label for="first-name">subTotal</label>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" name="notes" placeholder="Total" disabled="true"
+                                value={{sales.subtotal}} />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="col-sm-2 col-form-label">
+                        <label for="first-name">Total</label>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" name="notes" placeholder="Total"
+                                value={{this.sales.total.toFixed(2)}} disabled="true" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="col-sm-2 col-form-label">
+                <label for="first-name">Nota</label>
+            </div>
+            <div class="form-group ">
+                <div class="col-sm-12">
+                    <textarea type="text" class="form-control" [(ngModel)]="sales.notes"
+                        placeholder="Ingrese Nota"></textarea>
+                        <span class="color-danger"><small>{{msgNote}}</small></span>
+                </div>
+            </div>  
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="col-form-label">
+                    <button [disabled]="this.activeButon" class="btn btn-success" (click)="save(1)"><i class="fa-solid fa-dollar-sign"></i> Efectivo</button>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="col-form-label">
+                    <button [disabled]="this.activeButon" class="btn btn-danger" (click)="save(2)"><i class="fa-regular fa-credit-card"></i> Tarjeta</button>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="col-form-label">
+                    <button [disabled]="this.activeButon" class="btn btn-dark" (click)="save(3)"><i class="fas fa-exchange"></i> Transferencia</button>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="col-form-label">
+                    <button [disabled]="this.activeButon" class="btn btn-primary" (click)="save(4)"><i class="far fa-sim-card"></i> Gift Card</button>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    <div class="col-7">
+        <mat-tab-group (selectedTabChange)="getTableTabs($event)">
+            <mat-tab label="Productos">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-8">
+                            <h4 class="card-title"></h4>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" [(ngModel)]="searchTextProduct" (keyup)="searchProduct()"
+                                class="form-control" placeholder="Ingrese el texto" aria-label=""
+                                aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <app-table-pagination *ngIf="tabIndex === 0" [id]="idTableProducts" [headers]="headersProducts"
+                    [itemsPerPage]="5" [currentPage]="1" [search]="searchTextProduct" (select)="selectProduct($event)">
+                </app-table-pagination>
+            </mat-tab>
+            <mat-tab label="Servicios">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-8">
+                            <h4 class="card-title"></h4>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" [(ngModel)]="searchText" (keyup)="search()" class="form-control"
+                                placeholder="Ingrese el texto" aria-label="" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <app-table-pagination [id]="idTableServices" *ngIf="tabIndex === 1" [headers]="headersServices"
+                    [itemsPerPage]="5" [currentPage]="1" [search]="searchText" (select)="selectProduct($event)">
+                </app-table-pagination>
+            </mat-tab>
+
+        </mat-tab-group>
+    </div>
+</div>
+</div>
+

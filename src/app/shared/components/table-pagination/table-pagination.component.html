@@ -1,0 +1,56 @@
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <ng-container *ngFor="let h of headers">
+                    <th *ngIf="h.show">{{h.name}}</th>
+                </ng-container>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let r of row  | filter: search  | paginate: { itemsPerPage: config.itemsPerPage, currentPage: config.currentPage } ; let i = index ">
+                <td>
+                    {{i + 1}}
+                </td>
+                <ng-container *ngFor="let key of objectKeys(r)">
+                    <td *ngIf="r[key].show">{{r[key].value}}</td>
+                </ng-container>
+                <td>
+                    <a  style="white-space: pre;" *ngIf="config.id == 'idTableProducts' || config.id == 'idTableServices'" (click)="selectSales(r)" >
+                        <i class="fa fa-plus"></i>Agregar
+                    </a>
+                    <a class="mr-1" *ngIf="config.id !== 'idTableProducts' && config.id !== 'idTableServices'" (click)="editEmit(r)">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    
+                    <a *ngIf="config.id !== 'idTableProducts' && config.id !== 'idTableServices'" (click)="deleteEmit(r)">
+                        <i class="fa far fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <ul class="pagination">
+        <hr />
+        <br />
+        <div class="col-12">
+            <div class="row">
+                <div class="col-9">
+                    <pagination-controls
+                        (pageChange)="pageChanged($event)"
+                        [responsive]="true" 
+                        [previousLabel]="'Atrás'"
+                        [nextLabel]="'Siguiente'"
+                        >
+                    </pagination-controls>
+                </div>
+                <div class="col-3 text-center">
+                    <!-- {{config.currentPage}} de {{pageTotal}} -->
+                </div>
+            </div>
+        </div>
+    </ul>
+</div>

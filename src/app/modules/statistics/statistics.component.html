@@ -1,0 +1,67 @@
+<div class="content-body">
+    <section id="page-account-settings">
+        <div class="row">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="account-pill-general" data-toggle="pill" href="#general" (click)="tab = 1" aria-expanded="true">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                            <span class="font-weight-bold">General</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="account-pill-employees" data-toggle="pill" href="#employees" (click)="tab = 2" aria-expanded="false">
+                            <i class="fa-solid fa-user"></i>
+                            <span class="font-weight-bold">Empleados</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="account-pill-categories" data-toggle="pill" href="#categories" (click)="tab = 3" aria-expanded="false">
+                            <i class="fa-solid fa-list"></i>
+                            <span class="font-weight-bold">Categorias</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="account-pill-services" data-toggle="pill" href="#services" (click)="tab = 4" aria-expanded="false">
+                            <i class="fa-solid fa-cubes"></i>
+                            <span class="font-weight-bold">Servicios</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="account-pill-employeeDetail" data-toggle="pill" href="#employeeDetail" (click)="tab = 5" aria-expanded="false">
+                            <i class="fa-sharp fa-solid fa-users"></i>
+                            <span class="font-weight-bold">Detalle Empleado</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="tab-content">
+                            
+                            <div role="tabpanel" class="tab-pane active" id="general" aria-labelledby="account-pill-general" aria-expanded="true">
+                                <app-tab-general *ngIf="tab===1"></app-tab-general>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="employees" role="tabpanel" aria-labelledby="account-pill-employees" aria-expanded="false">
+                                <app-tab-employees *ngIf="tab===2"></app-tab-employees>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="categories" role="tabpanel" aria-labelledby="account-pill-categories" aria-expanded="false">
+                                <app-tab-categories *ngIf="tab===3"></app-tab-categories>
+                            </div>
+                            
+                            <div class="tab-pane fade" id="services" role="tabpanel" aria-labelledby="account-pill-services" aria-expanded="false">
+                                <app-tab-services *ngIf="tab===4"></app-tab-services>
+                            </div>
+
+                            <div class="tab-pane fade" id="employeeDetail" role="tabpanel" aria-labelledby="account-pill-employeeDetail" aria-expanded="false">
+                                <app-tab-employee-detail *ngIf="tab===5"></app-tab-employee-detail>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>

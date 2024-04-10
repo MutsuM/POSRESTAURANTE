@@ -1,0 +1,106 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-8">
+                            <h4 class="card-title">Nuevo Servicio</h4>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a  [routerLink]="['/' + Prefix + '/services']" class="btn btn-primary text-center">
+                                <i class="fa fa-arrow-left"></i>
+                                Volver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form form-horizontal">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="first-name">Referencia</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" [(ngModel)]="service.reference" name="reference" />
+                                        <span class="color-danger"><small>{{getMessageValidate('reference')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="email-id">Descripción</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" [(ngModel)]="service.description" name="description" />
+                                        <span class="color-danger"><small>{{getMessageValidate('description')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="contact-info">Categoría</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" [(ngModel)]="categoryId" (change)="selectedCategory()">
+                                            <option value="0">Seleccionar categoría</option>
+                                            <option *ngFor="let c of categories" [value]="c.categoryId">{{c.description}}</option>
+                                        </select>
+                                        <span class="color-danger"><small>{{msgCategory}}</small></span>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <button type="button"data-toggle="modal" data-target="#new-category" class="btn btn-outline-primary"><i class="fa fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="password">Precio</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="input-group input-group-merge">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">S/.</span>
+                                            </div>
+                                            <input type="text" class="form-control" [(ngModel)]="service.price" name="price" />
+                                        </div>
+                                        <span class="color-danger"><small>{{getMessageValidate('price')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-2 col-form-label">
+                                        <label for="password">Duración (minutos)</label>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" [(ngModel)]="service.duration" name="duration" />
+                                        <span class="color-danger"><small>{{getMessageValidate('duration')}}</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-10 offset-sm-2">
+                                <button type="button" class="btn btn-primary mr-1" (click)="saveService()">
+                                    Guardar
+                                </button>
+                                <button type="reset" class="btn btn-outline-secondary mr-1" (click)="cleanForm()">
+                                    Limpiar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-new-category></app-new-category>

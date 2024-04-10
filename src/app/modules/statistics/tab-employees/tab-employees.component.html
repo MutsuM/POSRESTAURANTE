@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-lg-9">
+
+        <div class="form-group row">
+            <div class="col-sm-2 col-form-label">
+                <label for="contact-info">Empleado</label>
+            </div>
+            <div class="col-sm-9">
+                <select class="form-control" [(ngModel)]="employeeId" (change)="selectedEmployee()">
+                    <option value="0">Seleccionar Empleado</option>
+                    <option *ngFor="let employee of employees" [value]="employee.employeeId">{{employee.names}} {{employee.lastName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label class="form-label" for="basic-addon-name">Fecha Desde</label>
+                    <input type="date" class="form-control" [(ngModel)]="formEmployee.fechaDesde" name="fechaDesde" />
+                    <span class="color-danger"><small>{{getMessageValidate('fechaDesde')}}</small></span>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label class="form-label" for="basic-addon-name">Fecha Hasta</label>
+                    <input type="date" class="form-control" [(ngModel)]="formEmployee.fechaHasta" name="fechaHasta" />
+                    <span class="color-danger"><small>{{getMessageValidate('fechaHasta')}}</small></span>
+                </div>
+            </div>
+            <div class="col-lg-6 pt-2">
+                <button type="button" class="btn btn-primary mr-1" (click)="getEmployeeDetail()">
+                    <i class="fa fa-search"></i> Buscar
+                </button>
+                <button type="button" class="btn btn-danger">
+                    <i class="fa fa-export"></i> Exportar
+                </button>
+            </div>
+        </div>
+
+        <app-table-pagination
+            [headers]="headers"
+            [itemsPerPage]="5"
+            [currentPage]="1"
+            *ngIf="listEmployeeDetail.length > 0"
+        ></app-table-pagination>
+    </div>
+    <div class="col-lg-3" *ngIf="listEmployeeDetail.length > 0">
+        <h3>RESUMEN :</h3>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label class="form-label col-lg-12" for="basic-addon-name" style="padding-right:10px;">TOTAL
+                    SERVICIOS:</label>
+                <label class="form-label col-lg-12" for="basic-addon-name"> {{totalService}}</label>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label class="form-label col-lg-12" for="basic-addon-name" style="padding-right:10px;">TOTAL
+                    PRODUCTOS:</label>
+                <label class="form-label col-lg-12" for="basic-addon-name"> {{totalProducts}}</label>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label class="form-label col-lg-12" for="basic-addon-name" style="padding-right:10px;">TOTAL A
+                    PAGAR:</label>
+                <label class="form-label col-lg-12" for="basic-addon-name"> {{totalPayment}}</label>
+            </div>
+        </div>
+    </div>
+</div>

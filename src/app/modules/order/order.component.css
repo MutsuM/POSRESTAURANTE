@@ -1,0 +1,25 @@
+
+
+.boton-categoria{
+    background-color: #28c76f; 
+    color: white; 
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 0.358rem;
+    margin: 1px;
+}
+.boton-categoria:hover{
+    background-color: #1fd556;
+}
+
+.card:hover{
+     transform: translateY(-5px);
+}
+
+.card{
+    margin: 3px;
+    height: min-content;
+    width: 130px;
+    
+}

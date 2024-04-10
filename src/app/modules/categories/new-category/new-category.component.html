@@ -1,0 +1,53 @@
+<div class="modal fade text-left" id="new-category" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel19">Nueva Categoría</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group row">
+                            <div class="col-sm-3 col-form-label">
+                                <label for="first-name">Descripción</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" [(ngModel)]="category.description" name="description" />
+                                <span class="color-danger"><small>{{getMessageValidate('description')}}</small></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group row">
+                            <div class="col-sm-3 col-form-label">
+                                <label for="first-name">Comisión</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" [(ngModel)]="category.commission" name="commission" />
+                                <span class="color-danger"><small>{{getMessageValidate('commission')}}</small></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group row">
+                            <div class="col-sm-3 col-form-label">
+                                <label for="email-id">Color</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" [(ngModel)]="category.color" name="color" />
+                                <span class="color-danger"><small>{{getMessageValidate('color')}}</small></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="save()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="col-8">
+                    <h4 class="card-title">Lista de Caja del día</h4>
+                </div>
+                <div class="col-4 text-right">
+                    <a  [routerLink]="['new']" class="btn btn-primary text-center">
+                        <i class="fa fa-plus"></i>
+                        Nuevo
+                    </a>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Fecha</th>
+                            <th>Ingresos</th>
+                            <th>Egresos</th>
+                            <th>Ventas</th>
+                            <th>Descuadre</th>
+                            <th>Caja</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                1
+                            </td>
+                            <td>21-11-2022</td>
+                            <td>
+                                S/ 500.00
+                            </td>
+                            <td>
+                                S/ 600.00
+                            </td>
+                            <td>S/ 300.00</td>
+                            <td>S/ 50.00</td>
+                            <td>S/ 20.00</td>
+                            <td>
+                                <a class="mr-1">
+                                    <i class="fa fa-edit"></i>
+                                    <span> Editar</span>
+                                </a>
+                                <a>
+                                    <i class="fa fa-trash"></i>
+                                    <span> Borrar</span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

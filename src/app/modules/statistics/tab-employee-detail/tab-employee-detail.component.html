@@ -1,0 +1,29 @@
+<div class="col-lg-12">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label class="form-label" for="basic-addon-name" >Fecha Desde</label>
+                <input type="date" class="form-control" [(ngModel)]="date.fechaDesde" name="fechaDesde"/>
+                <span class="color-danger"><small>{{getMessageValidate('fechaDesde')}}</small></span>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label class="form-label" for="basic-addon-name">Fecha Hasta</label>
+                <input type="date" class="form-control" [(ngModel)]="date.fechaHasta" name="fechaHasta"/>
+                <span class="color-danger"><small>{{getMessageValidate('fechaHasta')}}</small></span>
+            </div>
+        </div>
+        <div class="col-lg-6 pt-2">
+            <button type="button" class="btn btn-primary mr-1" (click)="getStatistics()">
+                <i class="fa fa-search"></i> Buscar
+            </button>
+            <button type="button" class="btn btn-danger">
+                <i class="fa fa-export"></i> Exportar
+            </button>
+        </div>
+    </div>
+</div>
+<app-apex-charts
+    (onClick)="redirectDetail($event)"
+></app-apex-charts>

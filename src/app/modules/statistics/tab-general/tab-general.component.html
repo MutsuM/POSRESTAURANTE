@@ -1,0 +1,78 @@
+
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <label class="form-label" for="basic-addon-name" >Fecha Desde</label>
+                        <input type="date" class="form-control" [(ngModel)]="date.fechaDesde" name="fechaDesde"/>
+                        <span class="color-danger"><small>{{getMessageValidate('fechaDesde')}}</small></span>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <label class="form-label" for="basic-addon-name">Fecha Hasta</label>
+                        <input type="date" class="form-control" [(ngModel)]="date.fechaHasta" name="fechaHasta"/>
+                        <span class="color-danger"><small>{{getMessageValidate('fechaDesde')}}</small></span>
+                    </div>
+                </div>
+                <div class="col-lg-6 pt-2">
+                    <button type="button" class="btn btn-primary mr-1" (click)="getStatistics()">
+                        <i class="fa fa-search"></i> Buscar
+                    </button>
+                    <button type="button" class="btn btn-danger">
+                        <i class="fa fa-export"></i> Exportar
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-9">
+                    <app-apex-charts></app-apex-charts>
+                </div>
+                
+                <div class="col-lg-3" *ngIf="sumary.length > 0">
+                    <h3>DESCRIPCIÓN :</h3>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="form-label col-lg-12" for="basic-addon-name" style="padding-right:10px;">VENTA EFECTIVO:{{sumary[0].total}}</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="form-label col-lg-12" for="basic-addon-name" style="padding-right:10px;">VENTA TARJETA:{{sumary[1].total}}</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="form-label col-lg-12" for="basic-addon-name" style="padding-right:10px;">#VENTAS EFECTIVO:{{sumary[2].total}}</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="form-label col-lg-12" for="basic-addon-name" style="padding-right:10px;">#VENTAS TARJETA:{{sumary[3].total}}</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="form-label col-lg-12" for="basic-addon-name" style="padding-right:10px;">#TOTAL DE SERVICIOS:{{sumary[4].total}}</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="form-label col-lg-12" for="basic-addon-name" style="padding-right:10px;">#TOTAL INGRESOS POR VENTAS:{{sumary[5].total}}</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="form-label col-lg-12" for="basic-addon-name" style="padding-right:10px;">PROMEDIO TICKET:{{sumary[6].total}}</label>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+            
+            
+      
+   
+    
